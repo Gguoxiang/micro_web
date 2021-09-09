@@ -1,0 +1,27 @@
+{
+  "name": "qiankun-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm-run-all --serial install:*",
+    "install:main": "cd main && npm install",
+    "install:sub_vue": "cd sub_vue && npm install",
+    "install:sub2_vue": "cd sub2_vue && npm install",
+    "start": "npm-run-all --parallel start:*",
+    "start:sub_vue": "cd sub_vue && yarn dev",
+    "start:sub2_vue": "cd sub2_vue && yarn dev",
+    "start:main": "cd main && yarn dev",
+    "build": "npm-run-all --serial build:*",
+    "build:main": "cd main && yarn build",
+    "build:sub_vue": "cd sub_vue && yarn build",
+    "build:sub2_vue": "cd sub2_vue && yarn build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
