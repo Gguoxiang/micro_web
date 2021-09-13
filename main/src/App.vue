@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="layout-header">
-      <div class="logo">我是爸爸，我有俩儿子</div>
+      <div class="logo">我是爸爸，我有俩儿子 爸爸的state：{{ JSON.stringify(user) }}</div>
       <ul class="sub-apps">
         <li v-for="item in microApps" :class="{active: item.activeRule === current}" :key="item.name" @click="goto(item)">{{ item.name }}</li>
       </ul>
@@ -12,6 +12,7 @@
 
 <script>
 import microApps from './micro-app'
+import store from '@/store'
 
 export default {
   name: 'App',
@@ -19,6 +20,11 @@ export default {
     return {
       microApps,
       current: '/sub_vue'
+    }
+  },
+  computed: {
+    user () {
+      return store.getGlobalState('user')
     }
   },
   methods: {

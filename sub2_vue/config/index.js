@@ -44,6 +44,7 @@ module.exports = {
       jsonpFunction: `webpackJsonp_${name}`
     }
   },
+  transpileDependencies: ["global-state"],
 
   build: {
     // Template for index.html

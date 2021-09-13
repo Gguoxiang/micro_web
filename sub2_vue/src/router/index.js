@@ -16,17 +16,19 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/components/HelloWorld";
+import { name } from "../../package.json";
 
 Vue.use(VueRouter);
+let prefix = window.__POWERED_BY_QIANKUN__ ? `/micrApp/${name}` : "/";
 
 const routes = [
   {
-    path: "/",
+    path: prefix,
     name: "Home",
     component: Home
   },
   {
-    path: "/about",
+    path: `${prefix}/about`,
     name: "About",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

@@ -39,6 +39,7 @@ module.exports = {
       'Access-Control-Allow-Origin': '*'
     },
   },
+  transpileDependencies: ["global-state"],
   configureWebpack: {
     output: {
       // 把子应用打包成 umd 库格式
