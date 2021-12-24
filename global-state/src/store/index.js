@@ -13,7 +13,9 @@ function globalRegister (store, props = {}) {
   // 获取初始化的state
   const initState = props.getGlobalState && props.getGlobalState() || {
     menu: [],
-    user: {}
+    user: {
+      name: '爸爸'
+    }
   };
 
   // 将父应用的数据存储到子应用中，命名空间固定为global
@@ -35,6 +37,7 @@ function globalRegister (store, props = {}) {
       mutations: {
         setGlobalState (state, payload) {
           // eslint-disable-next-line
+          console.log('sss', state, payload)
           state = Object.assign(state, payload);
         },
         // 通知父应用

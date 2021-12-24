@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <div>从vuex的global module的state： {{ JSON.stringify(user) }}</div>
+    <div>从vuex的global module的state： {{ JSON.stringify(user.name) }}</div>
     <button @click="update">更新</button>
     <router-view />
   </div>
@@ -24,7 +24,7 @@ export default {
     update() {
       const obj = {
         user: {
-          name: "zhangsan"
+          name: "小儿子"
         }
       };
       this.setGlobalState(obj);

@@ -10,21 +10,21 @@ Vue.config.productionTip = false;
 
 let install = null;
 function render(props = {}) {
-  const { container } = props;
+  const { container, routerBase } = props;
   const router = new VueRouter({
-    // base: window.__POWERED_BY_QIANKUN__ ? routerBase : process.env.BASE_URL,
-    // mode: "history",
+    base: window.__POWERED_BY_QIANKUN__ ? routerBase : process.env.BASE_URL,
+    mode: "history",
     routes
   });
-  if (window.__POWERED_BY_QIANKUN__) {
-    router.beforeEach((to, from, next) => {
-      if (!to.path.includes("/micrApp")) {
-        next({ path: `/micrApp/${name}${to.path}` });
-      } else {
-        next();
-      }
-    });
-  }
+  // if (window.__POWERED_BY_QIANKUN__) {
+  //   router.beforeEach((to, from, next) => {
+  //     if (!to.path.includes("/micrApp")) {
+  //       next({ path: `/micrApp/${name}${to.path}` });
+  //     } else {
+  //       next();
+  //     }
+  //   });
+  // }
   install = new Vue({
     router,
     store,
@@ -39,7 +39,7 @@ if (window.__POWERED_BY_QIANKUN__) {
   // 独立运行时，也注册一个名为global的store module
   globalRegister(store);
   // 模拟登录后，存储用户信息到global module
-  const userInfo = { name: "我是独立运行时名字叫张三" }; // 假设登录后取到的用户信息
+  const userInfo = { name: "我是独立运行时名字叫大儿子" }; // 假设登录后取到的用户信息
   store.commit("global/setGlobalState", { user: userInfo });
   render();
 }
